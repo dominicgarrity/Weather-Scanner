@@ -10,15 +10,29 @@
     <script type="text/babel">
     
     class Hello extends React.Component {
+        constuctor() {
+            super();
+            this.state = {
+                message : "compers",
+                num : 1
+        }
+    }
 
+        updates = () => {
+            this.setState({
+                message : "compers " + String(this.state.num),
+                num : this.state.num + 1
+        });
+    }
         render() {
             return (
             <div>
-            <h1>Hello Compers!</h1>
-            
+            <h1>Hello, {this.state.message}!</h1>
+            <button onClick = {this.updates}>Click here to update!</button>
             </div>);
         }
     }
+
     ReactDOM.render(
         <Hello/>, 
         document.getElementById("root")
